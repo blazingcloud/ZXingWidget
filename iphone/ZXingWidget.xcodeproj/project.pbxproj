@@ -1533,7 +1533,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
 					armv6,
 					i386,
 				);
@@ -1568,7 +1568,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
 					armv6,
 					i386,
 				);
