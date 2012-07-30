@@ -244,8 +244,9 @@ ZXingWidgetControllerCallback(Decoder* _decoder) : decoder(_decoder) {}
         
 
     if (decoderResult) {
+      TwoDDecoderResult *copy = [decoderResult copy];
       [self performSelectorOnMainThread:@selector(didDecodeImage:)
-                             withObject:[decoderResult copy]
+                             withObject:copy
                           waitUntilDone:NO];
       [decoderResult release];
       returnCode = YES;

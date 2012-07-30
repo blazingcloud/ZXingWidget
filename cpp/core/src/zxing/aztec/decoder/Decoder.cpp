@@ -184,12 +184,11 @@ Ref<String> Decoder::getEncodedData(Ref<zxing::BitArray> correctedBits) {
   Table table = UPPER;
   int startIndex = 0;
   std::string result;
-  bool end = false;
   bool shift = false;
   bool switchShift = false;
   bool binaryShift = false;
             
-  while (!end) {
+  while (true) {
     // std::printf("decoooooding\n");
                 
     if (shift) {
@@ -216,7 +215,6 @@ Ref<String> Decoder::getEncodedData(Ref<zxing::BitArray> correctedBits) {
       }
       for (int charCount = 0; charCount < length; charCount++) {
         if (endIndex - startIndex < 8) {
-          end = true;
           break;
         }
                         
@@ -228,7 +226,6 @@ Ref<String> Decoder::getEncodedData(Ref<zxing::BitArray> correctedBits) {
     } else {
       if (table == BINARY) {
         if (endIndex - startIndex < 8) {
-          end = true;
           break;
         }
         code = readCode(correctedBits, startIndex, 8);
@@ -243,7 +240,6 @@ Ref<String> Decoder::getEncodedData(Ref<zxing::BitArray> correctedBits) {
         }
                         
         if (endIndex - startIndex < size) {
-          end = true;
           break;
         }
                         
