@@ -270,14 +270,17 @@
   [self presentResultForString:[twoDResult text]];
   [self presentResultPoints:[twoDResult points] forImage:image usingSubset:subset];
   // now, in a selector, call the delegate to give this overlay time to show the points
-  [self performSelector:@selector(notifyDelegate:) withObject:[[twoDResult text] copy] afterDelay:0.0];
+  NSString *copyOfTheText = [[twoDResult text] copy];
+  [self performSelector:@selector(notifyDelegate:)
+             withObject:copyOfTheText
+             afterDelay:0.0];
+  [copyOfTheText release];
   decoder.delegate = nil;
 }
 
 - (void)notifyDelegate:(id)text {
   if (!isStatusBarHidden) [[UIApplication sharedApplication] setStatusBarHidden:NO];
   [delegate zxingController:self didScanResult:text];
-  [text release];
 }
 
 - (void)decoder:(Decoder *)decoder failedToDecodeImage:(UIImage *)image usingSubset:(UIImage *)subset reason:(NSString *)reason {

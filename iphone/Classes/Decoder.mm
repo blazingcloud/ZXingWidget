@@ -63,7 +63,6 @@ ZXingWidgetControllerCallback(Decoder* _decoder) : decoder(_decoder) {}
   if ([self.delegate respondsToSelector:@selector(decoder:didDecodeImage:usingSubset:withResult:)]) {
     [self.delegate decoder:self didDecodeImage:self.image usingSubset:self.subsetImage withResult:result];
   }
-  [result release];
 }
 
 - (void)failedToDecodeImage:(NSString *)reason {
@@ -249,6 +248,7 @@ ZXingWidgetControllerCallback(Decoder* _decoder) : decoder(_decoder) {}
                              withObject:copy
                           waitUntilDone:NO];
       [decoderResult release];
+      [copy release];
       returnCode = YES;
     } else {
       [self performSelectorOnMainThread:@selector(failedToDecodeImage:)
