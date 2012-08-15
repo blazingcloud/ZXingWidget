@@ -80,7 +80,7 @@ public:
 
   /* return the current count for denugging purposes or similar */
   int count() const {
-    return count_;
+    return (int)count_;
   }
 };
 

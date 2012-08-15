@@ -47,7 +47,7 @@ class DecodeHints {
   static const DecodeHintType BARCODEFORMAT_ITF_HINT = 1 << BarcodeFormat_ITF;
   static const DecodeHintType BARCODEFORMAT_AZTEC_HINT = 1 << BarcodeFormat_AZTEC;
   static const DecodeHintType CHARACTER_SET = 1 << 30;
-  static const DecodeHintType TRYHARDER_HINT = 1 << 31;
+  static const DecodeHintType TRYHARDER_HINT = (DecodeHintType)1 << 31;
 
   static const DecodeHints PRODUCT_HINT;
   static const DecodeHints ONED_HINT;

@@ -44,7 +44,7 @@ private:
 
   static const unsigned int bitsPerWord =
     std::numeric_limits<unsigned int>::digits;
-  static const unsigned int logBits = ZX_LOG_DIGITS(bitsPerWord);
+  static const unsigned int logBits = (unsigned int)ZX_LOG_DIGITS(bitsPerWord);
   static const unsigned int bitsMask = (1 << logBits) - 1;
 
 public:

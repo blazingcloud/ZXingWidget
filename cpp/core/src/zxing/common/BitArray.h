@@ -39,7 +39,7 @@ private:
   std::vector<unsigned int> bits_;
   static const unsigned int bitsPerWord_ =
     std::numeric_limits<unsigned int>::digits;
-  static const unsigned int logBits_ = ZX_LOG_DIGITS(bitsPerWord_);
+  static const unsigned int logBits_ = (unsigned int)ZX_LOG_DIGITS(bitsPerWord_);
   static const unsigned int bitsMask_ = (1 << logBits_) - 1;
   static size_t wordsForBits(size_t bits);
   explicit BitArray();
